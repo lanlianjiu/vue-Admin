@@ -8,6 +8,8 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import "babel-polyfill";
 import storage from "./utils/storage";
+import store from "./store";
+//import './router/routerControl'
 Vue.use(ElementUI, {
     size: 'small'
 });
@@ -35,6 +37,7 @@ router.beforeEach((to, from, next) => {
 })
 
 new Vue({
+    store,
     router,
     render: h => h(App)
 }).$mount('#app');
