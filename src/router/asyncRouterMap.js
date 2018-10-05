@@ -1,6 +1,6 @@
 export const asyncRouterMap = [{
         path: '/',
-        redirect: '/dashboard'
+        redirect: '/1'
     },
     {
         path: '/',
