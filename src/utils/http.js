@@ -1,10 +1,9 @@
 import axios from 'axios'
-import storage from './storage'
 import {
     getToken
 } from '@/utils/auth'
 import * as tools from './tools'
-
+import Cookies from 'js-cookie'
 const http = axios.create({
     baseURL: '',
     timeout: 30000
@@ -14,10 +13,11 @@ const http = axios.create({
 http.interceptors.request.use(
     config => {
 
-        if (storage.get('access-token')) {
+        if (Cookies.get('access-token')) {
 
-            config.headers['Authorization'] = storage.get('access-token')
+            config.headers['Authorization'] = Cookies.get('access-token')
         }
+
         return config
     },
     error => {

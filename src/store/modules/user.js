@@ -47,6 +47,7 @@ const user = {
                     const response = await login(username, password)
                     if (response.data) {
                         commit(types.SET_TOKEN, response.data.token)
+
                         setToken(response.data.token)
                         Cookies.set('user', username)
                     }

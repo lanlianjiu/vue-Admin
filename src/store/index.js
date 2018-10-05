@@ -7,11 +7,13 @@ import permission from './modules/permission'
 import user from './modules/user'
 import getters from './getters'
 import menu from './modules/menu'
+import basechart from './modules/basechart'
 const store = new Vuex.Store({
     modules: {
         permission,
         user,
-        menu
+        menu,
+        basechart
     },
     getters,
     strict: false
