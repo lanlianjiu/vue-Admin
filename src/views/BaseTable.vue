@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import http from "../../utils/http";
+import http from "../utils/http";
 export default {
   name: "basetable",
   data() {
@@ -126,7 +126,7 @@ export default {
     getData() {
       // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
       if (process.env.NODE_ENV === "development") {
-        this.url = "mk/table/list";
+        this.url = "mk/table";
       }
 
       let postdata = {
@@ -140,7 +140,7 @@ export default {
         method: "post",
         postdata
       }).then(function(res) {
-        that.tableData = res.list;
+        that.tableData = res.data;
       });
     },
     search() {

@@ -1,28 +1,30 @@
 import http from '@/utils/http'
 
-export function loginbyUser(username, password) {
-  const data = {
-    username,
-    password
-  }
-  return http({
-    url: '/login/login',
-    method: 'post',
-    data
-  })
+export function login(username, password) {
+    const data = {
+        username,
+        password
+    }
+    return http({
+        url: '/mk/login',
+        method: 'post',
+        data
+    })
 }
 
 export function logout() {
-  return http({
-    url: '/login/logout',
-    method: 'post'
-  })
+    return http({
+        url: '/mk/loginout',
+        method: 'post'
+    })
 }
 
 export function getUserInfo(username) {
-  return http({
-    url: '/user/info',
-    method: 'get',
-    params: { username }
-  })
+    return http({
+        url: 'mk/getUserInfo',
+        method: 'get',
+        params: {
+            username
+        }
+    })
 }

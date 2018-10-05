@@ -23,8 +23,9 @@
 </template>
 
 <script>
-import storage from "../../utils/storage";
-import http from "../../utils/http";
+import storage from "../utils/storage";
+import http from "../utils/http";
+
 export default {
   data: function() {
     return {
@@ -44,29 +45,20 @@ export default {
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
-          // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-          if (process.env.NODE_ENV === "development") {
-            this.url = "/mk/login/user";
-          }
-
           let postdata = {
             username: this.ruleForm.username,
             password: this.ruleForm.password
           };
           let that = this;
 
-          http({
-            url: this.url,
-            method: "post",
-            postdata,
-            headers: {
-              Authorization: "Basic og=="
-            }
-          }).then(function(res) {
-            storage.set("access-token", res.userInfo.token);
-            storage.set("USER_INFO", res.userInfo);
-            that.$router.push("/");
-          });
+          that.$store
+            .dispatch("login", {
+              username: postdata.username.trim(),
+              password: postdata.password
+            })
+            .then(function(res) {
+              that.$router.push("/");
+            });
         } else {
           console.log("error submit!!");
           return false;
@@ -82,7 +74,7 @@ export default {
   position: relative;
   width: 100%;
   height: 100%;
-  background-image: url(../../assets/login-bg.jpg);
+  background-image: url(../assets/login-bg.jpg);
   background-size: 100%;
 }
 .ms-title {

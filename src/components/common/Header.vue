@@ -41,7 +41,9 @@
 <script>
 import bus from "../common/bus";
 import storage from "../../utils/storage";
+import * as types from "../../store/mutaion";
 import http from "../../utils/http";
+import Cookies from "js-cookie";
 export default {
   data() {
     return {
@@ -54,25 +56,16 @@ export default {
   },
   computed: {
     username() {
-      let userInfo = storage.get("USER_INFO");
-      return userInfo.userName ? userInfo.userName : this.name;
+      let username = Cookies.get("user");
+      return username ? username : this.name;
     }
   },
   methods: {
     // 用户名下拉菜单选择事件
     handleCommand(command) {
       if (command == "loginout") {
-        // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-        if (process.env.NODE_ENV === "development") {
-          this.url = "/mk/loginout/user";
-        }
         let that = this;
-        http({
-          url: this.url,
-          method: "post"
-        }).then(function(res) {
-          storage.remove("access-token");
-          storage.remove("USER_INFO");
+        that.$store.dispatch("logout").then(function(res) {
           that.$router.push("/login");
         });
       }

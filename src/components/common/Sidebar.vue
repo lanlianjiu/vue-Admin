@@ -56,17 +56,15 @@ export default {
   },
   methods: {
     getMenu() {
-      // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-      if (process.env.NODE_ENV === "development") {
-        this.url = "mk/menu/list";
-      }
       let that = this;
-      http({
-        url: this.url,
-        method: "get"
-      }).then(function(res) {
-        that.items = res.items;
-      });
+      that.$store
+        .dispatch("getMenu")
+        .then(res => {
+          that.items = res.data;
+        })
+        .catch(err => {
+          console.log(err);
+        });
     }
   }
 };
