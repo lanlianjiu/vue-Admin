@@ -9,28 +9,28 @@ export const asyncRouterMap = [{
             title: '自述文件'
         },
         children: [{
-                path: '/dashboard',
+                path: '/1',
                 component: resolve => require(['../views/Dashboard.vue'], resolve),
                 meta: {
                     title: '系统首页'
                 }
             },
             {
-                path: '/icon',
+                path: '/6',
                 component: resolve => require(['../views/Icon.vue'], resolve),
                 meta: {
                     title: '自定义图标'
                 }
             },
             {
-                path: '/table',
+                path: '/3',
                 component: resolve => require(['../views/BaseTable.vue'], resolve),
                 meta: {
                     title: '基础表格'
                 }
             },
             {
-                path: '/tabs',
+                path: '/4',
                 component: resolve => require(['../views/Tabs.vue'], resolve),
                 meta: {
                     title: 'tab选项卡'
@@ -69,7 +69,7 @@ export const asyncRouterMap = [{
             },
             {
                 // vue-schart组件
-                path: '/charts',
+                path: '/7',
                 component: resolve => require(['../views/BaseCharts.vue'], resolve),
                 meta: {
                     title: 'schart图表'
@@ -77,7 +77,7 @@ export const asyncRouterMap = [{
             },
             {
                 // 拖拽列表组件
-                path: '/drag',
+                path: '/8',
                 component: resolve => require(['../views/DragList.vue'], resolve),
                 meta: {
                     title: '拖拽列表'
