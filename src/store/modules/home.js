@@ -1,10 +1,8 @@
 import {
-    getdragList
+    getDashboard
 }
-from '@/api/dragList'
-import * as types from '../mutaion'
-
-const dragList = {
+from '@/api/home'
+const home = {
     state: {
 
     },
@@ -12,12 +10,12 @@ const dragList = {
 
     },
     actions: {
-        querydragList({
+        getDashboard({
             commit
         }) {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const response = await getdragList()
+                    const response = await getDashboard()
                     resolve(response)
                 } catch (error) {
                     reject(error)
@@ -27,4 +25,4 @@ const dragList = {
     }
 }
 
-export default dragList
+export default home

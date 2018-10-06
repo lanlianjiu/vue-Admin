@@ -1,8 +1,10 @@
 import {
-    getDashboard
+    baseTabledata
 }
-from '@/api/dashboard'
-const dashboard = {
+from '@/api/example/baseTable'
+import * as types from '../../mutaion'
+
+const baseTable = {
     state: {
 
     },
@@ -10,12 +12,12 @@ const dashboard = {
 
     },
     actions: {
-        getDashboard({
+        baseTabledata({
             commit
         }) {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const response = await getDashboard()
+                    const response = await baseTabledata()
                     resolve(response)
                 } catch (error) {
                     reject(error)
@@ -25,4 +27,4 @@ const dashboard = {
     }
 }
 
-export default dashboard
+export default baseTable

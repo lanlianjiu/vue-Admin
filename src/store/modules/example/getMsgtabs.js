@@ -1,8 +1,8 @@
 import {
     getMsg
 }
-from '@/api/getMsgtabs'
-import * as types from '../mutaion'
+from '@/api/example/getMsgtabs'
+import * as types from '../../mutaion'
 
 const getMsgtabs = {
     state: {

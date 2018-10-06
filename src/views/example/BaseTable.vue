@@ -68,7 +68,7 @@
 </template>
 
 <script>
-import http from "../utils/http";
+import http from "../../utils/http";
 export default {
   name: "basetable",
   data() {
@@ -124,22 +124,13 @@ export default {
     },
     // 获取 easy-mock 的模拟数据
     getData() {
-      // 开发环境使用 easy-mock 数据，正式环境使用 json 文件
-      if (process.env.NODE_ENV === "development") {
-        this.url = "mk/table";
-      }
-
       let postdata = {
         page: this.cur_page
       };
 
       let that = this;
-
-      http({
-        url: this.url,
-        method: "post",
-        postdata
-      }).then(function(res) {
+      that.$store.dispatch("baseTabledata", postdata).then(function(res) {
+        console.log(res);
         that.tableData = res.data;
       });
     },

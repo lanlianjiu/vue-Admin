@@ -1,10 +1,10 @@
 import {
-    getData
+    getdragList
 }
-from '@/api/basechart'
-import * as types from '../mutaion'
+from '@/api/example/dragList'
+import * as types from '../../mutaion'
 
-const basechart = {
+const dragList = {
     state: {
 
     },
@@ -12,12 +12,12 @@ const basechart = {
 
     },
     actions: {
-        getData({
+        querydragList({
             commit
         }) {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const response = await getData()
+                    const response = await getdragList()
                     resolve(response)
                 } catch (error) {
                     reject(error)
@@ -27,4 +27,4 @@ const basechart = {
     }
 }
 
-export default basechart
+export default dragList

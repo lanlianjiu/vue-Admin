@@ -1,10 +1,10 @@
 import {
-    baseFormdata
+    getData
 }
-from '@/api/baseForm'
-import * as types from '../mutaion'
+from '@/api/example/basechart'
+import * as types from '../../mutaion'
 
-const baseForm = {
+const basechart = {
     state: {
 
     },
@@ -12,12 +12,12 @@ const baseForm = {
 
     },
     actions: {
-        baseFormdata({
+        getData({
             commit
         }) {
             return new Promise(async (resolve, reject) => {
                 try {
-                    const response = await baseFormdata()
+                    const response = await getData()
                     resolve(response)
                 } catch (error) {
                     reject(error)
@@ -27,4 +27,4 @@ const baseForm = {
     }
 }
 
-export default baseForm
+export default basechart

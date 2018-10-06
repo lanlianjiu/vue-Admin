@@ -10,35 +10,35 @@ export const asyncRouterMap = [{
         },
         children: [{
                 path: '/1',
-                component: resolve => require(['../views/Dashboard.vue'], resolve),
+                component: resolve => require(['../views/home.vue'], resolve),
                 meta: {
                     title: '系统首页'
                 }
             },
             {
                 path: '/6',
-                component: resolve => require(['../views/Icon.vue'], resolve),
+                component: resolve => require(['../views/example/Icon.vue'], resolve),
                 meta: {
                     title: '自定义图标'
                 }
             },
             {
                 path: '/3',
-                component: resolve => require(['../views/BaseTable.vue'], resolve),
+                component: resolve => require(['../views/example/BaseTable.vue'], resolve),
                 meta: {
                     title: '基础表格'
                 }
             },
             {
                 path: '/4',
-                component: resolve => require(['../views/Tabs.vue'], resolve),
+                component: resolve => require(['../views/example/Tabs.vue'], resolve),
                 meta: {
                     title: 'tab选项卡'
                 }
             },
             {
                 path: '/form',
-                component: resolve => require(['../views/BaseForm.vue'], resolve),
+                component: resolve => require(['../views/example/BaseForm.vue'], resolve),
                 meta: {
                     title: '基本表单'
                 }
@@ -46,7 +46,7 @@ export const asyncRouterMap = [{
             {
                 // 富文本编辑器组件
                 path: '/editor',
-                component: resolve => require(['../views/VueEditor.vue'], resolve),
+                component: resolve => require(['../views/example/VueEditor.vue'], resolve),
                 meta: {
                     title: '富文本编辑器'
                 }
@@ -54,7 +54,7 @@ export const asyncRouterMap = [{
             {
                 // markdown组件
                 path: '/markdown',
-                component: resolve => require(['../views/Markdown.vue'], resolve),
+                component: resolve => require(['../views/example/Markdown.vue'], resolve),
                 meta: {
                     title: 'markdown编辑器'
                 }
@@ -62,7 +62,7 @@ export const asyncRouterMap = [{
             {
                 // 图片上传组件
                 path: '/upload',
-                component: resolve => require(['../views/Upload.vue'], resolve),
+                component: resolve => require(['../views/example/Upload.vue'], resolve),
                 meta: {
                     title: '文件上传'
                 }
@@ -70,7 +70,7 @@ export const asyncRouterMap = [{
             {
                 // vue-schart组件
                 path: '/7',
-                component: resolve => require(['../views/BaseCharts.vue'], resolve),
+                component: resolve => require(['../views/example/BaseCharts.vue'], resolve),
                 meta: {
                     title: 'schart图表'
                 }
@@ -78,7 +78,7 @@ export const asyncRouterMap = [{
             {
                 // 拖拽列表组件
                 path: '/8',
-                component: resolve => require(['../views/DragList.vue'], resolve),
+                component: resolve => require(['../views/example/DragList.vue'], resolve),
                 meta: {
                     title: '拖拽列表'
                 }
@@ -86,7 +86,7 @@ export const asyncRouterMap = [{
             {
                 // 权限页面
                 path: '/permission',
-                component: resolve => require(['../views/Permission.vue'], resolve),
+                component: resolve => require(['../views/example/Permission.vue'], resolve),
                 meta: {
                     title: '权限测试',
                     permission: true

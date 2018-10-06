@@ -7,21 +7,26 @@ import permission from './modules/permission'
 import user from './modules/user'
 import getters from './getters'
 import menu from './modules/menu'
-import basechart from './modules/basechart'
-import dashboard from './modules/dashboard'
-import getMsgtabs from './modules/getMsgtabs'
-import baseForm from './modules/baseForm'
-import dragList from './modules/dragList'
+import home from './modules/home'
+
+import basechart from './modules/example/basechart'
+import getMsgtabs from './modules/example/getMsgtabs'
+import baseForm from './modules/example/baseForm'
+import dragList from './modules/example/dragList'
+import baseTable from './modules/example/baseTable'
+
 const store = new Vuex.Store({
     modules: {
         permission,
         user,
         menu,
+        home,
+
         basechart,
-        dashboard,
         getMsgtabs,
         baseForm,
-        dragList
+        dragList,
+        baseTable
     },
     getters,
     strict: false
