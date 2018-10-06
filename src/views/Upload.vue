@@ -50,7 +50,7 @@ export default {
   name: "upload",
   data: function() {
     return {
-      defaultSrc: "../../assets/img/img.jpg",
+      defaultSrc: "../src/assets/img/img.jpg",
       fileList: [],
       imgSrc: "",
       cropImg: "",

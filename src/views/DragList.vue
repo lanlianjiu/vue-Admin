@@ -47,118 +47,103 @@
 </template>
 
 <script>
-    import draggable from 'vuedraggable'
-    export default {
-        name: 'draglist',
-        data() {
-            return {
-                dragOptions:{
-                    animation: 120,
-                    scroll: true,
-                    group: 'sortlist',
-                    ghostClass: 'ghost-style'
-                },
-                todo: [
-                    {
-                        content: '开发图表组件'
-                    },
-                    {
-                        content: '开发拖拽组件'
-                    },
-                    {
-                        content: '开发权限测试组件'
-                    }
-                ],
-                doing: [
-                    {
-                        content: '开发登录注册页面'
-                    },
-                    {
-                        content: '开发头部组件'
-                    },
-                    {
-                        content: '开发表格相关组件'
-                    },
-                    {
-                        content: '开发表单相关组件'
-                    }
-                ],
-                done:[
-                    {
-                        content: '初始化项目，生成工程目录，完成相关配置'
-                    },
-                    {
-                        content: '开发项目整体框架'
-                    }
-                ]
-            }
-        },
-        components:{
-            draggable
-        },
-        methods: {
-            removeHandle(event){
-                console.log(event);
-                this.$message.success(`从 ${event.from.id} 移动到 ${event.to.id} `);
-            }
-        }
+import draggable from "vuedraggable";
+export default {
+  name: "draglist",
+  data() {
+    return {
+      dragOptions: {
+        animation: 120,
+        scroll: true,
+        group: "sortlist",
+        ghostClass: "ghost-style"
+      },
+      todo: [],
+      doing: [],
+      done: []
+    };
+  },
+  components: {
+    draggable
+  },
+  created() {
+    this.getdragList();
+  },
+  methods: {
+    getdragList() {
+      let that = this;
+      that.$store
+        .dispatch("querydragList")
+        .then(res => {
+          that.todo = res.data.todo;
+          that.doing = res.data.doing;
+          that.done = res.data.done;
+        })
+        .catch(err => {
+          console.log(err);
+        });
+    },
+    removeHandle(event) {
+      console.log(event);
+      this.$message.success(`从 ${event.from.id} 移动到 ${event.to.id} `);
     }
-
+  }
+};
 </script>
 
 <style scoped>
-    .drag-box{
-        display: flex;
-        user-select: none;
-    }
-    .drag-box-item {
-        flex: 1;
-        max-width: 330px;
-        min-width: 300px;
-        background-color: #eff1f5;
-        margin-right: 16px;
-        border-radius: 6px;
-        border: 1px #e1e4e8 solid;
-    }
-    .item-title{
-        padding: 8px 8px 8px 12px;
-        font-size: 14px;
-        line-height: 1.5;
-        color: #24292e;
-        font-weight: 600;
-    }
-    .item-ul{
-        padding: 0 8px 8px;
-        height: 500px;
-        overflow-y: scroll;
-    }
-    .item-ul::-webkit-scrollbar{
-        width: 0;
-    }
-    .drag-list {
-        border: 1px #e1e4e8 solid;
-        padding: 10px;
-        margin: 5px 0 10px;
-        list-style: none;
-        background-color: #fff;
-        border-radius: 6px;
-        cursor: pointer;
-        -webkit-transition: border .3s ease-in;
-        transition: border .3s ease-in;
-    }
-    .drag-list:hover {
-        border: 1px solid #20a0ff;
-    }
-    .drag-title {
-        font-weight: 400;
-        line-height: 25px;
-        margin: 10px 0;
-        font-size: 22px;
-        color: #1f2f3d;
-    }
-    .ghost-style{
-        display: block;
-        color: transparent;
-        border-style: dashed
-    }
+.drag-box {
+  display: flex;
+  user-select: none;
+}
+.drag-box-item {
+  flex: 1;
+  max-width: 330px;
+  min-width: 300px;
+  background-color: #eff1f5;
+  margin-right: 16px;
+  border-radius: 6px;
+  border: 1px #e1e4e8 solid;
+}
+.item-title {
+  padding: 8px 8px 8px 12px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #24292e;
+  font-weight: 600;
+}
+.item-ul {
+  padding: 0 8px 8px;
+  height: 500px;
+  overflow-y: scroll;
+}
+.item-ul::-webkit-scrollbar {
+  width: 0;
+}
+.drag-list {
+  border: 1px #e1e4e8 solid;
+  padding: 10px;
+  margin: 5px 0 10px;
+  list-style: none;
+  background-color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  -webkit-transition: border 0.3s ease-in;
+  transition: border 0.3s ease-in;
+}
+.drag-list:hover {
+  border: 1px solid #20a0ff;
+}
+.drag-title {
+  font-weight: 400;
+  line-height: 25px;
+  margin: 10px 0;
+  font-size: 22px;
+  color: #1f2f3d;
+}
+.ghost-style {
+  display: block;
+  color: transparent;
+  border-style: dashed;
+}
 </style>
