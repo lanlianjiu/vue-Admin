@@ -7,12 +7,20 @@
         <div class="logo">vue-系统</div>
         <div class="header-right">
             <div class="header-user-con">
+                <!-- 消息显示 -->
+                <div class="msg-list">
+                   <seamless-list 
+                    :messageList="messageList"
+                    :singleHeight="60"
+                    :limitMoveNum="2"/>
+                </div>
                 <!-- 全屏显示 -->
                 <div class="btn-fullscreen" @click="handleFullScreen">
                     <el-tooltip effect="dark" :content="fullscreen?`取消全屏`:`全屏`" placement="bottom">
                         <i class="el-icon-rank"></i>
                     </el-tooltip>
                 </div>
+                
                 <!-- 消息中心 -->
                 <div class="btn-bell">
                     <el-tooltip effect="dark" :content="message?`有${message}条未读消息`:`消息中心`" placement="bottom">
@@ -44,15 +52,24 @@ import storage from "../../utils/storage";
 import * as types from "../../store/mutaion";
 import http from "../../utils/http";
 import Cookies from "js-cookie";
+import seamlessList from "@/components/seamlessList";
 export default {
+  name: "Header",
+  components: {
+    "seamless-list": seamlessList
+  },
   data() {
     return {
       collapse: false,
       fullscreen: false,
       name: "defualtadmin",
       message: 2,
+      messageList: [],
       userInfo: {}
     };
+  },
+  created() {
+    this.getMsglimit();
   },
   computed: {
     username() {
@@ -61,6 +78,13 @@ export default {
     }
   },
   methods: {
+    //获取消息
+    getMsglimit() {
+      let that = this;
+      that.$store.dispatch("getUnreadyMsg").then(function(res) {
+        that.messageList = res.data;
+      });
+    },
     // 用户名下拉菜单选择事件
     handleCommand(command) {
       if (command == "loginout") {

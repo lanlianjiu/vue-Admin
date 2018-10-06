@@ -9,17 +9,18 @@ import './assets/css/icon.css';
 import "babel-polyfill";
 import storage from "./utils/storage";
 import store from "./store";
-
-import nprogress from 'nprogress'
-import 'nprogress/nprogress.css'
+import scroll from 'vue-seamless-scroll';
+import nprogress from 'nprogress';
+import 'nprogress/nprogress.css';
 import {
     getToken
-} from '@/utils/auth'
-import * as tools from '@/utils/tools'
+} from '@/utils/auth';
+import * as tools from '@/utils/tools';
 
 Vue.use(ElementUI, {
     size: 'small'
 });
+Vue.use(scroll);
 Vue.prototype.$axios = axios;
 
 //使用钩子函数对路由进行权限跳转
