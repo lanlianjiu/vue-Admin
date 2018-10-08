@@ -130,7 +130,6 @@ export default {
 
       let that = this;
       that.$store.dispatch("baseTabledata", postdata).then(function(res) {
-        console.log(res);
         that.tableData = res.data;
       });
     },
@@ -144,6 +143,7 @@ export default {
       return row.tag === value;
     },
     handleEdit(index, row) {
+      //this.$router.push({path:'/icon',query:{a:index}});  打开新tags传参
       this.idx = index;
       const item = this.tableData[index];
       this.form = {
