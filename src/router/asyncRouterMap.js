@@ -101,7 +101,7 @@ export const asyncRouterMap = [{
                 component: resolve => require(['../views/example/Permission.vue'], resolve),
                 meta: {
                     title: '权限测试',
-                    permission: true
+                    roles: ["admin"]
                 }
             },
             {
