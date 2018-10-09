@@ -15,7 +15,7 @@
                 <el-input v-model="select_word" placeholder="筛选关键词" class="handle-input mr10"></el-input>
                 <el-button type="primary" icon="search" @click="search">搜索</el-button>
             </div>
-            <el-table :data="data" border class="table" ref="multipleTable" @selection-change="handleSelectionChange">
+            <el-table :data="data" border class="table" v-loading="loading" ref="multipleTable" @selection-change="handleSelectionChange">
                 <el-table-column type="selection" width="55" align="center"></el-table-column>
                 <el-table-column prop="date" label="日期" sortable width="150">
                 </el-table-column>
@@ -88,7 +88,8 @@ export default {
         date: "",
         address: ""
       },
-      idx: -1
+      idx: -1,
+      loading: true
     };
   },
   created() {
@@ -131,10 +132,13 @@ export default {
       let that = this;
       that.$store.dispatch("baseTabledata", postdata).then(function(res) {
         that.tableData = res.data;
+        that.loading = false;
       });
     },
     search() {
       this.is_search = true;
+      this.loading = true;
+      this.getData();
     },
     formatter(row, column) {
       return row.address;
