@@ -63,6 +63,7 @@
 </template>
 
 <script>
+import bus from "../../components/common/bus";
 export default {
   name: "baseform",
   data: function() {
@@ -83,7 +84,9 @@ export default {
       });
     },
     onSubmit() {
+        
       this.$message.success("提交成功！");
+      bus.$emit("closeTags", this.$route.fullPath);
       this.$router.push({ path: "/ruleList" });
     }
   }

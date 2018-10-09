@@ -97,7 +97,30 @@ export default {
     }
   },
   created() {
+
     this.setTags(this.$route);
+
+    let that = this;
+    
+    let closeIndex = -1;
+
+    bus.$on("closeTags", function(msg){
+
+      const isClose = that.tagsList.some((item,index) => {
+        
+        if(item.path === msg){
+
+           closeIndex = index;
+           return item.path === msg;
+        };
+       
+      });
+     
+      if(isClose&&(closeIndex != -1)){
+         that.closeTags(closeIndex);
+       };
+
+    });
   }
 };
 </script>
