@@ -69,7 +69,7 @@ export default {
     color: #FFF;
 
     &:hover {
-      color: #39986d;
+      color: rgb(40, 52, 70);
     }
   }
 
