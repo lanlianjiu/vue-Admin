@@ -44,7 +44,7 @@ const permission = {
             commit
         }, roles) {
             return new Promise(resolve => {
-                console.log(roles.indexOf('admin'));
+
                 let routers = null
                 // 如果 roles 角色中存在 admin 则直接返回所有路由, 否则进行路由过滤
                 roles.indexOf('admin') > -1 ?
