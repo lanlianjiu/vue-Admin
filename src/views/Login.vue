@@ -25,13 +25,16 @@
 <script>
 import storage from "../utils/storage";
 import http from "../utils/http";
+import {
+    getToken
+} from '@/utils/auth'
 
 export default {
   data: function() {
     return {
       ruleForm: {
-        username: "admin",
-        password: "123123"
+        username: "",
+        password: ""
       },
       rules: {
         username: [
@@ -57,7 +60,9 @@ export default {
               password: postdata.password
             })
             .then(function(res) {
-              that.$router.push("/");
+              console.log(res)
+              //getToken.setToken(res.Authorization);
+              //that.$router.push("/");
             });
         } else {
           console.log("error submit!!");
