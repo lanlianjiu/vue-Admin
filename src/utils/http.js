@@ -18,7 +18,7 @@ http.interceptors.request.use(
             config.headers['Authorization'] = "Bearer " + Cookies.get('access-token');
         }else{
 
-            config.headers['Authorization'] = "Bearer og==";
+            config.headers['Authorization'] = "Basic og==";
         }
 
         return config
