@@ -15,10 +15,10 @@ http.interceptors.request.use(
         console.log(Cookies.get('access-token'))
         if (Cookies.get('access-token')) {
 
-            config.headers['Authorization'] = "Basic "+Cookies.get('access-token');
+            config.headers['Authorization'] = "Bearer " + Cookies.get('access-token');
         }else{
 
-            config.headers['Authorization'] = "Basic og==";
+            config.headers['Authorization'] = "Bearer og==";
         }
 
         return config
