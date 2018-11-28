@@ -13,10 +13,11 @@ const http = axios.create({
 http.interceptors.request.use(
     config => {
         console.log(Cookies.get('access-token'))
+        console.log(getToken('access-token'))
         if (Cookies.get('access-token')) {
 
             config.headers['Authorization'] = "Bearer " + Cookies.get('access-token');
-        }else{
+        } else {
 
             config.headers['Authorization'] = "Basic og==";
         }

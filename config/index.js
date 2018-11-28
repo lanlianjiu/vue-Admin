@@ -11,11 +11,11 @@ module.exports = {
         assetsSubDirectory: 'static',
         assetsPublicPath: '/',
         proxyTable: {
-            '/admin': {
+            '/api': {
                 target: 'http://www.devlanlianjiu.xyz',
                 changeOrigin: true,
                 pathRewrite: {
-                    '^/admin': ''
+                    '^/api': ''
                 }
             },
             '/mk': {
@@ -24,7 +24,7 @@ module.exports = {
             }
         },
         // Various Dev Server settings
-        host: 'www.applanlianjiu.xyz', // can be overwritten by process.env.HOST
+        host: 'localhost', // can be overwritten by process.env.HOST
         port: 8090, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
         autoOpenBrowser: true,
         errorOverlay: true,
@@ -54,12 +54,12 @@ module.exports = {
 
     build: {
         // Template for index.html
-        index: path.resolve(__dirname, '../dist/vue-m-system/index.html'),
+        index: path.resolve(__dirname, '../dist/vue-admin/index.html'),
 
         // Paths
-        assetsRoot: path.resolve(__dirname, '../dist/vue-m-system'),
+        assetsRoot: path.resolve(__dirname, '../dist/vue-admin'),
         assetsSubDirectory: 'assets',
-        assetsPublicPath: '/vue-m-system/',
+        assetsPublicPath: '/vue-admin/',
 
         /**
          * Source Maps

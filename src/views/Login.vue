@@ -1,33 +1,36 @@
 <template>
-    <div class="login-wrap">
-        <div class="ms-login">
-            <div class="ms-title">后台管理系统</div>
-            <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="ms-content">
-                <el-form-item prop="username">
-                    <el-input v-model="ruleForm.username" placeholder="username">
-                        <el-button slot="prepend" icon="el-icon-lx-people"></el-button>
-                    </el-input>
-                </el-form-item>
-                <el-form-item prop="password">
-                    <el-input type="password" placeholder="password" v-model="ruleForm.password" @keyup.enter.native="submitForm('ruleForm')">
-                        <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
-                    </el-input>
-                </el-form-item>
-                <div class="login-btn">
-                    <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
-                </div>
-                <p class="login-tips">Tips : 用户名和密码随便填。</p>
-            </el-form>
+  <div class="login-wrap">
+    <div class="ms-login">
+      <div class="ms-title">后台管理系统</div>
+      <el-form :model="ruleForm" :rules="rules" ref="ruleForm" label-width="0px" class="ms-content">
+        <el-form-item prop="username">
+          <el-input v-model="ruleForm.username" placeholder="username">
+            <el-button slot="prepend" icon="el-icon-lx-people"></el-button>
+          </el-input>
+        </el-form-item>
+        <el-form-item prop="password">
+          <el-input
+            type="password"
+            placeholder="password"
+            v-model="ruleForm.password"
+            @keyup.enter.native="submitForm('ruleForm')"
+          >
+            <el-button slot="prepend" icon="el-icon-lx-lock"></el-button>
+          </el-input>
+        </el-form-item>
+        <div class="login-btn">
+          <el-button type="primary" @click="submitForm('ruleForm')">登录</el-button>
         </div>
+        <p class="login-tips">Tips : 用户名和密码随便填。</p>
+      </el-form>
     </div>
+  </div>
 </template>
 
 <script>
 import storage from "../utils/storage";
 import http from "../utils/http";
-import {
-    getToken
-} from '@/utils/auth'
+import { setToken } from "@/utils/auth";
 
 export default {
   data: function() {
@@ -60,9 +63,8 @@ export default {
               password: postdata.password
             })
             .then(function(res) {
-              console.log(res)
-              //getToken.setToken(res.Authorization);
-              //that.$router.push("/");
+              setToken(res.Authorization);
+              that.$router.push("/");
             });
         } else {
           console.log("error submit!!");
