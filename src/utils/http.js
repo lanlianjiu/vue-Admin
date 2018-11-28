@@ -12,8 +12,7 @@ const http = axios.create({
 // 请求前 拦截器
 http.interceptors.request.use(
     config => {
-        console.log(Cookies.get('access-token'))
-        console.log(getToken('access-token'))
+
         if (Cookies.get('access-token')) {
 
             config.headers['Authorization'] = "Bearer " + Cookies.get('access-token');
