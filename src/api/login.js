@@ -6,7 +6,7 @@ export function login(username, password) {
         password
     }
     return http({
-        url: '/api/login',
+        url: '/admin/login',
         method: 'post',
         data
     })
