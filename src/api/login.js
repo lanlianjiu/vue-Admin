@@ -21,10 +21,7 @@ export function logout() {
 
 export function getUserInfo(username) {
     return http({
-        url: '/mk/getUserInfo',
-        method: 'get',
-        params: {
-            username
-        }
+        url: 'api/admin/menu/user-info',
+        method: 'get'
     })
 }
