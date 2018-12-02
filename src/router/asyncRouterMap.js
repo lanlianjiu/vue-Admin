@@ -15,8 +15,8 @@ export const asyncRouterMap = [{
                     title: '系统首页'
                 }
             }, {
-                path: '/ruleList',
-                component: resolve => require(['../views/UM/ruleList.vue'], resolve),
+                path: '/ruleManage',
+                component: resolve => require(['../views/UM/ruleManage.vue'], resolve),
                 meta: {
                     title: '规则列表'
                 }

@@ -4,7 +4,7 @@
         <div class="collapse-btn" @click="collapseChage">
             <i class="el-icon-menu"></i>
         </div>
-        <div class="logo">vue-系统</div>
+        <div class="logo">后台系统</div>
         <div class="header-right">
             <div class="header-user-con">
                 <!-- 消息显示 -->
