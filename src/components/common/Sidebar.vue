@@ -4,25 +4,25 @@
             text-color="#bfcbd9" active-text-color="#20a0ff" unique-opened router>
             <template v-for="item in items">
                 <template v-if="item.items">
-                    <el-submenu :index="item.id" :key="item.id">
+                    <el-submenu :index="item.path" :key="item.path">
                         <template slot="title">
                             <i :class="item.icon"></i><span slot="title">{{ item.label }}</span>
                         </template>
                         <template v-for="subItem in item.items">
-                            <el-submenu v-if="subItem.items" :index="subItem.id" :key="subItem.id">
+                            <el-submenu v-if="subItem.items" :index="subItem.path" :key="subItem.path">
                                 <template slot="title">{{ subItem.label }}</template>
-                                <el-menu-item v-for="(threeItem,i) in subItem.items" :key="i" :index="threeItem.id">
+                                <el-menu-item v-for="(threeItem,i) in subItem.items" :key="i" :index="threeItem.path">
                                     {{ threeItem.label }}
                                 </el-menu-item>
                             </el-submenu>
-                            <el-menu-item v-else :index="subItem.id" :key="subItem.id">
+                            <el-menu-item v-else :index="subItem.path" :key="subItem.path">
                                 {{ subItem.label }}
                             </el-menu-item>
                         </template>
                     </el-submenu>
                 </template>
                 <template v-else>
-                    <el-menu-item :index="item.id" :key="item.id">
+                    <el-menu-item :index="item.path" :key="item.path">
                         <i :class="item.icon"></i><span slot="title">{{ item.label }}</span>
                     </el-menu-item>
                 </template>
