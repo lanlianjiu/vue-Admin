@@ -34,6 +34,7 @@
 <script>
 import bus from "../common/bus";
 import http from "../../utils/http";
+import storage from "../../utils/storage";
 export default {
   data() {
     return {
@@ -61,6 +62,7 @@ export default {
         .dispatch("getMenu")
         .then(res => {
           that.items = res;
+          storage.set("UUDI",12323)
         })
         .catch(err => {
           console.log(err);

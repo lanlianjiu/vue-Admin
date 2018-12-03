@@ -1,3 +1,4 @@
+import storage from "../utils/storage";
 export const asyncRouterMap = [{
         path: '/',
         redirect: '/home'
@@ -18,7 +19,7 @@ export const asyncRouterMap = [{
                 path: '/ruleManage',
                 component: resolve => require(['../views/UM/ruleManage.vue'], resolve),
                 meta: {
-                    title: '规则列表'
+                    title: storage.get('UUDI')
                 }
             }, {
                 path: '/createRule',
