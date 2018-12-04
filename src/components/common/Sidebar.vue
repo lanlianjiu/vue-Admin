@@ -91,10 +91,11 @@ export default {
         .dispatch("getMenu")
         .then(res => {
           that.items = res;
-          that.routeList(that.items);
+          //that.routeList(that.items);
           console.log(that.routeres);
           storage.remove("ROUTE_LIST");
-          storage.set("ROUTE_LIST", that.routeres);
+         
+         // storage.set("ROUTE_LIST", array);
         })
         .catch(err => {
           console.log(err);
