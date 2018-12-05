@@ -3,7 +3,6 @@ import Vuex from 'vuex'
 
 Vue.use(Vuex)
 
-import permission from './modules/permission'
 import user from './modules/user'
 import getters from './getters'
 import menu from './modules/menu'
@@ -19,12 +18,10 @@ import baseTable from './modules/example/baseTable'
 
 const store = new Vuex.Store({
     modules: {
-        permission,
         user,
         menu,
         home,
         systemMsg,
-
         basechart,
         getMsgtabs,
         baseForm,

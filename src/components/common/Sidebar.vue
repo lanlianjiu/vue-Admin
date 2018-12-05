@@ -92,9 +92,7 @@ export default {
         .then(res => {
           that.items = res;
           //that.routeList(that.items);
-          console.log(that.routeres);
-          storage.remove("ROUTE_LIST");
-         
+          //storage.remove("ROUTE_LIST");
          // storage.set("ROUTE_LIST", array);
         })
         .catch(err => {
